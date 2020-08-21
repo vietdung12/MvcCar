@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+
+    <link rel="stylesheet" href="~/Content/style.css">
+</head>
+<body>
+    <div class="box" method="post">
+        <div>
+            <h1>Login</h1>
+            <h5 style="color:red">@ViewBag.Thongbao</h5>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+        <div>
+            <input type="text" name="username" placeholder="Username">
+            <h5>@ViewData["Loi1"]</h5>
+        </div>
+        <div>
+            <input type="password" name="pass" placeholder="Password">
+            <h5>@ViewData["Loi2"]</h5>
+        </div>
+        <input type="submit" value="Login">
+        }
+    </div>
+</body>
+</html>

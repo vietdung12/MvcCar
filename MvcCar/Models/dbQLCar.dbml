@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLCAR" Class="dbQLCarDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=VD\SQLEXPRESS;Initial Catalog=QLCAR;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLCARConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ADMIN" Member="ADMINs">
+    <Type Name="ADMIN">
+      <Column Name="AdUser" Type="System.String" DbType="NVarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AdPass" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AdName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BRANCH" Member="BRANCHes">
+    <Type Name="BRANCH">
+      <Column Name="BraID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BraLocal" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BraAdress" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="BraTelephone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="BRANCH_CAR" Member="CARs" ThisKey="BraID" OtherKey="BraID" Type="CAR" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CAR" Member="CARs">
+    <Type Name="CAR">
+      <Column Name="CarID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Introduce" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UpdateDay" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AvailableQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TypeCarID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BraID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarManuID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CAR_ORDERDETAIL" Member="ORDERDETAILs" ThisKey="CarID" OtherKey="CarID" Type="ORDERDETAIL" />
+      <Association Name="BRANCH_CAR" Member="BRANCH" ThisKey="BraID" OtherKey="BraID" Type="BRANCH" IsForeignKey="true" />
+      <Association Name="CARMANUFACTURER_CAR" Member="CARMANUFACTURER" ThisKey="CarManuID" OtherKey="CarManuID" Type="CARMANUFACTURER" IsForeignKey="true" />
+      <Association Name="TYPECAR_CAR" Member="TYPECAR" ThisKey="TypeCarID" OtherKey="TypeCarID" Type="TYPECAR" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CARMANUFACTURER" Member="CARMANUFACTURERs">
+    <Type Name="CARMANUFACTURER">
+      <Column Name="CarManuID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CarManuName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CARMANUFACTURER_CAR" Member="CARs" ThisKey="CarManuID" OtherKey="CarManuID" Type="CAR" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CUSTOMMER" Member="CUSTOMMERs">
+    <Type Name="CUSTOMMER">
+      <Column Name="CusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CusName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CusEmail" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CusPass" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CusAdress" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CusTelephone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BirthDay" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TypeCusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CUSTOMMER_ORDERCAR" Member="ORDERCARs" ThisKey="CusID" OtherKey="CusID" Type="ORDERCAR" />
+      <Association Name="TYPECUSTOMMER_CUSTOMMER" Member="TYPECUSTOMMER" ThisKey="TypeCusID" OtherKey="TypeCusID" Type="TYPECUSTOMMER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ORDERCAR" Member="ORDERCARs">
+    <Type Name="ORDERCAR">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Paid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DeliveryStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ORDERCAR_ORDERDETAIL" Member="ORDERDETAILs" ThisKey="OrderID" OtherKey="OrderID" Type="ORDERDETAIL" />
+      <Association Name="CUSTOMMER_ORDERCAR" Member="CUSTOMMER" ThisKey="CusID" OtherKey="CusID" Type="CUSTOMMER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ORDERDETAILS" Member="ORDERDETAILs">
+    <Type Name="ORDERDETAIL">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CarID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Discout" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="CAR_ORDERDETAIL" Member="CAR" ThisKey="CarID" OtherKey="CarID" Type="CAR" IsForeignKey="true" />
+      <Association Name="ORDERCAR_ORDERDETAIL" Member="ORDERCAR" ThisKey="OrderID" OtherKey="OrderID" Type="ORDERCAR" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TYPECAR" Member="TYPECARs">
+    <Type Name="TYPECAR">
+      <Column Name="TypeCarID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeCarName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="TYPECAR_CAR" Member="CARs" ThisKey="TypeCarID" OtherKey="TypeCarID" Type="CAR" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TYPECUSTOMMER" Member="TYPECUSTOMMERs">
+    <Type Name="TYPECUSTOMMER">
+      <Column Name="TypeCusID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TypeName" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Discout" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="TYPECUSTOMMER_CUSTOMMER" Member="CUSTOMMERs" ThisKey="TypeCusID" OtherKey="TypeCusID" Type="CUSTOMMER" />
+    </Type>
+  </Table>
+</Database>

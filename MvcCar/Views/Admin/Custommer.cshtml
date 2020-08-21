@@ -1,0 +1,80 @@
+﻿@using MvcCar.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<CUSTOMMER>
+
+@{
+    ViewBag.Title = "Custommer";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Custommer</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CusID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CusEmail)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.First().CusPass)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.First().CusAdress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CusTelephone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().BirthDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TYPECUSTOMMER.TypeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusEmail)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.CusPass)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.CusAdress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CusTelephone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TYPECUSTOMMER.TypeName)
+        </td>
+    </tr>
+}
+
+</table>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuPage">
+    @Html.PagedListPager(Model, page => Url.Action("Car", new { page = page }))
+</div>
+<style>
+    .MenuPage li {
+        display: inline;
+    }
+</style>

@@ -1,0 +1,51 @@
+﻿
+@using MvcCar.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<CAR>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h3 style="text-align:center;color:red">NEW CAR</h3>
+
+
+
+<div class="row">
+    @foreach (var car in Model)
+    {
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+                <a href="@Url.Action("Details","Car", new { id=car.CarID})">
+                    <img alt="@car.CarName" src="~/Images/@car.Image" width="250" height="200"/>
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a href="@Url.Action("Details","Car", new { id=car.CarID})">
+
+                        </a>
+                    </h4>
+                    <h5>@car.Price</h5>
+                </div>
+                <div class="card-footer">
+                    <small>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                </div>
+            </div>
+        </div>
+
+
+    }
+</div>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+Page @(Model.PageCount<Model.PageNumber ? 0: Model.PageNumber)/@Model.PageCount
+<div class="MenuPage">
+
+    @Html.PagedListPager(Model,page=>Url.Action("Index",new {page=page}))
+</div>
+<style>
+    .MenuPage li{
+        display:inline;
+    }
+</style>
+

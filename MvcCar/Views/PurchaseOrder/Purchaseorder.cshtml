@@ -1,0 +1,53 @@
+﻿@using MvcCar.Models
+@model List<PurchaseOrder>
+@{
+    ViewBag.Title = "Purchaseorder";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="text-align:center">INFORMATION PURCHASE ORDER</h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td> CarID </td>
+        <td> CarName </td>
+        <td> Image </td>
+        <td> Number of Days Rented </td>
+        <td> Price/Day </td>
+        <td> Total </td>
+        <td width="50px"></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold">
+            <td> @item.iCarID </td>
+            <td> @item.sCarName </td>
+            <td> <img src="~/Images/@item.sImage" width="300" height="250"/> </td>
+            @using (Html.BeginForm("UpdatePurchaseOrder", "PurchaseOrder", new { @iMaSp = item.iCarID }))
+            {
+                <td>
+                    <input type="number" min="1" name="txtSoluong" value="@item.iQuantity" style="background-color:yellow" />
+                </td>
+                <td> @String.Format("{0:0,0}", item.dPrice) </td>
+                <td> @String.Format("{0:0,0}", item.dTotal) </td>
+                <td> <a href="@Url.Action("Details", "Car", new { id = item.iCarID })"> Details </a></td>
+                <td> @Html.ActionLink("Delete", "Deletepurchaseorder", new { @iMaSp = item.iCarID })</td>
+                <td> <input type="submit" value="Update" /></td>
+            }
+        </tr>
+    }
+    <tr style="font-weight:bold; text-align:right; color:red">
+        <td colspan="4"> Number of Days Rented: @ViewBag.TotalQ </td>
+        <td colspan="5"> Total: @String.Format("{0:0,0}", ViewBag.TotalM) VND </td>
+    </tr>
+    <tr style="font-weight:bold; color:blue; text-align:right">
+        <td colspan="9">
+            @Html.ActionLink("Delete Purchase Order", "DeleteAll")
+        </td>
+    </tr>
+    <tr style="font-weight:bold; color:blue; text-align:right">
+        <td colspan="9" align="center">
+            @Html.ActionLink("Order", "Order", "PurchaseOrder")
+        </td>
+    </tr>
+</table>
+

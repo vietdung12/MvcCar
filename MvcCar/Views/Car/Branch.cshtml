@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MvcCar.Models.BRANCH>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("CarByBranch", "Car", new { id=item.BraID})" class="list-group-item">
+            @item.BraLocal
+        </a>
+    }
+</div>
+

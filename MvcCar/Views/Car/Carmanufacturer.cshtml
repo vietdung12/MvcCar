@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MvcCar.Models.CARMANUFACTURER>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("CarByManufacturer", "Car", new { id=item.CarManuID})" class="list-group-item">
+            @item.CarManuName
+        </a>
+    }
+</div>
+
+

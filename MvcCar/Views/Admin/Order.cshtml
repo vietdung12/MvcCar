@@ -1,0 +1,86 @@
+﻿@using MvcCar.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<ORDERDETAIL>
+
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Order</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ORDERCAR.CusID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CarID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().UnitPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Discout)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ORDERCAR.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ORDERCAR.DeliveryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().ReturnDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ORDERCAR.CusID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discout)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ORDERCAR.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ORDERCAR.DeliveryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnDate)
+        </td>
+    </tr>
+}
+
+</table>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuPage">
+    @Html.PagedListPager(Model, page => Url.Action("Order", new { page = page }))
+</div>
+<style>
+    .MenuPage li {
+        display: inline;
+    }
+</style>

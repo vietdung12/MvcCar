@@ -1,0 +1,109 @@
+﻿@using MvcCar.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<CAR>
+
+@helper Truncate(string input, int length)
+{
+if (input.Length < length)
+{
+        @Html.Raw(input)
+}
+else
+{
+        input.Substring(0, length);
+        @Html.Raw(input + "<text>...</text>")
+}
+}
+@{
+    ViewBag.Title = "Car";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Car Management</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" border="1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CarName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Introduce)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().UpdateDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().AvailableQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TypeCarID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().BraID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().CarManuID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Truncate(item.Introduce, 100)
+        </td>
+        <td>
+            <img src="@Url.Content("~/Images/"+ item.Image)" width="220" height="190"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AvailableQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TYPECAR.TypeCarName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BRANCH.BraLocal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CARMANUFACTURER.CarManuName)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.CarID }) |*@
+            @Html.ActionLink("Details", "Details", new { id=item.CarID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CarID })
+        </td>
+    </tr>
+}
+
+</table>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuPage">
+    @Html.PagedListPager(Model, page => Url.Action("Car", new { page = page }))
+</div>
+<style>
+    .MenuPage li {
+        display: inline;
+    }
+</style>
+
+
+

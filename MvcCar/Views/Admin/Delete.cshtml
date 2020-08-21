@@ -1,0 +1,96 @@
+﻿@model MvcCar.Models.CAR
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Introduce)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Introduce)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvailableQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvailableQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeCarID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeCarID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BraID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BraID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarManuID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarManuID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Car")
+        </div>
+    }
+</div>

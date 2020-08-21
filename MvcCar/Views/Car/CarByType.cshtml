@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MvcCar.Models.CAR>
+@{
+    ViewBag.Title = "CarByType";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h3 style="text-align:center; color:red">CAR BY TYPE</h3>
+<div class="row">
+    @foreach (var car in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details", "Car", new { id = car.CarID})">
+                    <img alt="@car.CarName" src="~/Images/@car.Image" width="250" height="200"/>
+                </a>
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @car.CarName
+                    </h4>
+                    <h5 style="text-align:center">@car.Price VND/Day</h5>
+                    <p></p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">15 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>
+

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.375" name="dbQLCar">
+  <DataContextMoniker Name="/dbQLCarDataContext" />
+  <nestedChildShapes>
+    <classShape Id="94ddb168-d7ed-4068-9ebe-4c719be8f410" absoluteBounds="7.875, 6.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/dbQLCarDataContext/ADMIN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7173bb34-9da5-43fa-b46e-3c2b69f3cbbb" absoluteBounds="7.8900000000000006, 7.3350000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b5465e89-e3b4-4c9e-919c-2af2f55ed68c" absoluteBounds="0.75, 4, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbQLCarDataContext/BRANCH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="662abaf8-ae4d-45f5-944c-cb17f8467f3f" absoluteBounds="0.765, 4.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6de9a633-aee5-4bfa-987d-a28e006a908d" absoluteBounds="3.5, 1, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/dbQLCarDataContext/CAR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a45e9980-55f5-4de5-9fb0-57b66f454703" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d9051cc3-6592-4035-9c0f-6b6b0ee88088" absoluteBounds="0.75, 1.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/dbQLCarDataContext/CARMANUFACTURER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5246a4f8-851a-4a1e-96cd-5432b2bc36aa" absoluteBounds="0.765, 2.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7cd0606a-647d-49da-89f4-6f9763d2d39c" absoluteBounds="4.875, 6.75, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/dbQLCarDataContext/CUSTOMMER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e3775035-99b2-4ddc-9465-1a2bcb2d63b8" absoluteBounds="4.89, 7.2100000000000009, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="947c57af-6421-4478-9cf4-d13f422306c9" absoluteBounds="4.875, 4.375, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/dbQLCarDataContext/ORDERCAR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ee3bdf74-d86a-4d8e-8b99-612466807732" absoluteBounds="4.8900000000000006, 4.8350000000000009, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44d49969-d522-470c-aaf8-490079b59650" absoluteBounds="6.375, 1.5, 2, 1.9631982421874998">
+      <DataClassMoniker Name="/dbQLCarDataContext/ORDERDETAIL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1dc68ddc-57ab-47b3-b6eb-d8c27dc02781" absoluteBounds="6.39, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="826402c1-a228-4e79-9b33-6307bbe057ff" absoluteBounds="8.625, 4, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/dbQLCarDataContext/TYPECAR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99fd1c51-aa2a-41ca-91f2-5612e0e151a4" absoluteBounds="8.64, 4.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5208a9bc-2ffb-4f3d-8c9e-b41a4bef7f3a" absoluteBounds="1.375, 6.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/dbQLCarDataContext/TYPECUSTOMMER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5c4f692b-3c5b-4273-bdb4-81c4232fabfb" absoluteBounds="1.3900000000000001, 7.2100000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 4.15625); (4.15625 : 4.15625); (4.15625 : 3.73240397135417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbQLCarDataContext/BRANCH/BRANCH_CAR" />
+      <nodes>
+        <classShapeMoniker Id="b5465e89-e3b4-4c9e-919c-2af2f55ed68c" />
+        <classShapeMoniker Id="6de9a633-aee5-4bfa-987d-a28e006a908d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.34699625651042); (3.5 : 2.34699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbQLCarDataContext/CARMANUFACTURER/CARMANUFACTURER_CAR" />
+      <nodes>
+        <classShapeMoniker Id="d9051cc3-6592-4035-9c0f-6b6b0ee88088" />
+        <classShapeMoniker Id="6de9a633-aee5-4bfa-987d-a28e006a908d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 6.75); (5.875 : 6.3381982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbQLCarDataContext/CUSTOMMER/CUSTOMMER_ORDERCAR" />
+      <nodes>
+        <classShapeMoniker Id="7cd0606a-647d-49da-89f4-6f9763d2d39c" />
+        <classShapeMoniker Id="947c57af-6421-4478-9cf4-d13f422306c9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.48159912109375); (6.375 : 2.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbQLCarDataContext/CAR/CAR_ORDERDETAIL" />
+      <nodes>
+        <classShapeMoniker Id="6de9a633-aee5-4bfa-987d-a28e006a908d" />
+        <classShapeMoniker Id="44d49969-d522-470c-aaf8-490079b59650" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.625 : 4.375); (6.625 : 3.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbQLCarDataContext/ORDERCAR/ORDERCAR_ORDERDETAIL" />
+      <nodes>
+        <classShapeMoniker Id="947c57af-6421-4478-9cf4-d13f422306c9" />
+        <classShapeMoniker Id="44d49969-d522-470c-aaf8-490079b59650" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.55507174536876 : 4); (9.55507174536876 : 1.21875); (5.5 : 1.21875)]" fixedFrom="Caller" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbQLCarDataContext/TYPECAR/TYPECAR_CAR" />
+      <nodes>
+        <classShapeMoniker Id="826402c1-a228-4e79-9b33-6307bbe057ff" />
+        <classShapeMoniker Id="6de9a633-aee5-4bfa-987d-a28e006a908d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.375 : 7.44314697265625); (4.875 : 7.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbQLCarDataContext/TYPECUSTOMMER/TYPECUSTOMMER_CUSTOMMER" />
+      <nodes>
+        <classShapeMoniker Id="5208a9bc-2ffb-4f3d-8c9e-b41a4bef7f3a" />
+        <classShapeMoniker Id="7cd0606a-647d-49da-89f4-6f9763d2d39c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

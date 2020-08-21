@@ -1,0 +1,36 @@
+﻿@using MvcCar.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<TYPECAR>
+
+@{
+    ViewBag.Title = "TypeCar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>TypeCar</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateT")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TypeCarName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeCarName)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "EditT", new { id=item.TypeCarID }) |*@
+            @Html.ActionLink("Details", "DetailsT", new { id=item.TypeCarID }) |
+            @Html.ActionLink("Delete", "DeleteT", new { id=item.TypeCarID })
+        </td>
+    </tr>
+}
+
+</table>

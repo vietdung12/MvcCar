@@ -1,0 +1,58 @@
+﻿@using MvcCar.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<BRANCH>
+
+@{
+    ViewBag.Title = "Branch";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Branch</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateB")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().BraLocal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().BraAdress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().BraTelephone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BraLocal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BraAdress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BraTelephone)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.BraID }) |*@
+            @Html.ActionLink("Details", "DetailsB", new { id=item.BraID }) |
+            @Html.ActionLink("Delete", "DeleteB", new { id=item.BraID })
+        </td>
+    </tr>
+}
+
+</table>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuPage">
+    @Html.PagedListPager(Model, page => Url.Action("Branch", new { page = page }))
+</div>
+<style>
+    .MenuPage li {
+        display: inline;
+    }
+</style>

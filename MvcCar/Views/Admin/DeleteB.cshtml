@@ -1,0 +1,49 @@
+﻿@model MvcCar.Models.BRANCH
+
+@{
+    ViewBag.Title = "DeleteB";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BRANCH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BraLocal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BraLocal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BraAdress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BraAdress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BraTelephone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BraTelephone)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Branch")
+        </div>
+    }
+</div>

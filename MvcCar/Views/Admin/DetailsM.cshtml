@@ -1,0 +1,27 @@
+﻿@model MvcCar.Models.CARMANUFACTURER
+
+@{
+    ViewBag.Title = "DetailsM";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div>
+    <h4>CARMANUFACTURER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarManuName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarManuName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.CarManuID }) |*@
+    @Html.ActionLink("Back to List", "Manufacturer")
+</p>

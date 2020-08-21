@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MvcCar.Models.TYPECAR>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("CarByType", "Car", new { id=item.TypeCarID})" class="list-group-item">
+            @item.TypeCarName
+        </a>
+    }
+</div>
